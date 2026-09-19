@@ -1,7 +1,20 @@
 {
-  "插件跑起来了 ✨": "Your plugin is running ✨",
-  "这是你的第一个 LinkDesk 插件。": "This is your first LinkDesk plugin.",
-  "是插件本体——改它，浏览器预览即时刷新。": "is the plugin itself — edit it and the browser preview refreshes live.",
-  "打包出分发文件，可装进 LinkDesk 或发布到市场。": "produces the distributable bundle — install it into LinkDesk or publish it to the marketplace.",
-  "目录该放哪、发布怎么做，都写在 README.md 里。": "Where things go and how to publish are all in README.md."
+  "鹈鹕骑行": "Pelican Ride",
+  "海边公路无尽骑行——跳跃、俯冲、吃鱼，小心路障和海鸥！": "Endless seaside ride — jump, duck, grab fish, and watch out for cones and gulls!",
+  "开始游戏": "Start Game",
+  "再来一局": "Play Again",
+  "继续": "Resume",
+  "已暂停": "Paused",
+  "游戏结束": "Game Over",
+  "新纪录！": "New Record!",
+  "最高分": "Best",
+  "得分": "Score",
+  "跳跃": "Jump",
+  "俯冲": "Duck",
+  "音乐": "Music",
+  "暂停": "Pause",
+  "空格": "Space",
+  "点击": "Click",
+  "吃鱼得分，连击加成！三条命，撞一次少一条。": "Eat fish to score with combo bonuses! Three hearts — lose one per crash.",
+  "按 空格 或点击开始": "Press Space or click to start"
 }

@@ -1,23 +1,72 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-  <!-- ⚠️ 占位图——请替换成你自己插件的图标（同名同位置覆盖即可，plugin.json 的 icon 已指向本文件）。
-       写法与官方插件一致：界面里以 <img src="linkdesk://<id>/resources/icon.svg"> 显示，
-       是独立文档 ⇒ 不能用 var(--xxx)（解析不到），颜色必须自含实色。 -->
+  <!-- 鹈鹕骑行：市场/标签栏 Type-2 彩色身份图。
+       设计纪律：主体（车座上的白鹈鹕 + 橙架自行车）占画布 ≥ 75%，缩小到 48px 仍一眼可读；
+       背景只留三道色带（天/海/路）与一轮远日，绝不与主体争形。
+       独立文档 ⇒ 不能用 var(--xxx)，颜色必须自含实色。 -->
   <defs>
-    <linearGradient id="phi_bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#64748B"/>
-      <stop offset="1" stop-color="#334155"/>
+    <linearGradient id="gtb_sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4FC3F7"/>
+      <stop offset="1" stop-color="#B3E5FC"/>
     </linearGradient>
-    <linearGradient id="phi_glass" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
-    </linearGradient>
+    <clipPath id="gtb_clip">
+      <rect x="2" y="2" width="44" height="44" rx="10"/>
+    </clipPath>
   </defs>
-  <!-- 中性灰品牌块：刻意不设计成有含义的图形——它的意思是「这里还没有图」 -->
-  <rect x="0" y="0" width="48" height="48" rx="10" fill="url(#phi_bg)"/>
-  <rect x="0" y="0" width="48" height="48" rx="10" fill="url(#phi_glass)"/>
-  <!-- 虚线框 + 加号 = 「把你的图放这儿」 -->
-  <rect x="13" y="13" width="22" height="22" rx="5" fill="none"
-        stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="2"
-        stroke-dasharray="4 3" stroke-linecap="round"/>
-  <path d="M24 19.5v9M19.5 24h9" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+
+  <rect x="2" y="2" width="44" height="44" rx="10" fill="url(#gtb_sky)"/>
+  <g clip-path="url(#gtb_clip)">
+    <!-- 远日（左上角，远离主体） -->
+    <circle cx="9.5" cy="9.5" r="5.2" fill="#FFECB3" opacity="0.4"/>
+    <circle cx="9.5" cy="9.5" r="3" fill="#FFECB3"/>
+
+    <!-- 海 / 沙滩 / 公路 三道色带 -->
+    <rect x="2" y="31" width="44" height="6.5" fill="#1E88C9"/>
+    <path d="M6 33.4h5M16 34.4h6M28 33.6h5M37 34.4h4" stroke="#9BD4F0" stroke-width="1.3" stroke-linecap="round" opacity="0.8"/>
+    <rect x="2" y="37.5" width="44" height="3" fill="#F2D48A"/>
+    <rect x="2" y="40.5" width="44" height="5.5" fill="#4A5568"/>
+    <path d="M5 42.8h4.5M13.5 42.8h4.5M22 42.8h4.5M30.5 42.8h4.5M39 42.8h4.5" stroke="#FFFFFF" stroke-width="1.2" opacity="0.5"/>
+
+    <!-- 自行车：轮 / 橙架 / 座 / 把 -->
+    <g fill="none" stroke="#1F2937" stroke-width="2.4">
+      <circle cx="15.5" cy="38" r="5.2"/>
+      <circle cx="33.5" cy="38" r="5.2"/>
+    </g>
+    <g stroke="#FFFFFF" stroke-width="1" opacity="0.85">
+      <path d="M15.5 38 15.5 34.6M15.5 38 18.4 39.8M15.5 38 12.6 39.8"/>
+      <path d="M33.5 38 33.5 34.6M33.5 38 36.4 39.8M33.5 38 30.6 39.8"/>
+    </g>
+    <g fill="none" stroke="#F97316" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15.5 38 23.5 37 20 24.5"/>
+      <path d="M20 24.5 30 23.5 33.5 38"/>
+      <path d="M23.5 37 30 23.5"/>
+      <path d="M30 23.5 28.8 21"/>
+    </g>
+    <rect x="16.4" y="22.6" width="7" height="2.4" rx="1.2" fill="#1F2937"/>
+    <path d="M23.5 37 26.2 40.6" stroke="#1F2937" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="23.5" cy="37" r="1.6" fill="#1F2937"/>
+
+    <!-- 腿（踩踏） -->
+    <path d="M21.8 27Q25.5 33 26.2 40.4" fill="none" stroke="#F8F9FB" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M22.5 27.5Q20.5 32 21.2 33.6" fill="none" stroke="#E4E9F1" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="26.4" cy="40.6" r="1.5" fill="#F97316"/>
+
+    <!-- 鹈鹕：尾羽 / 身体 / 翅膀 -->
+    <path d="M15.6 24.6 11.6 23.4 14 26 10.8 26.6 14.6 28.4 16.4 27.6Z" fill="#FDFEFF"/>
+    <ellipse cx="23.5" cy="26.5" rx="8.6" ry="5.6" transform="rotate(-8 23.5 26.5)" fill="#FDFEFF"/>
+    <ellipse cx="21.6" cy="25.8" rx="4.8" ry="2.6" transform="rotate(-20 21.6 25.8)" fill="#DCE4EF"/>
+
+    <!-- 脖子 / 头 / 红帽 / 眼 -->
+    <path d="M29 25.5Q32.4 20.6 34.6 17.4" fill="none" stroke="#FDFEFF" stroke-width="4.2" stroke-linecap="round"/>
+    <circle cx="35.3" cy="15.8" r="3.9" fill="#FDFEFF"/>
+    <path d="M35.3 14.2A3.9 3.9 0 0 0 31.5 16.6 3.9 3.9 0 0 0 31.9 17.9L35.3 14.2Z" fill="#E8453C"/>
+    <path d="M32.1 13.9A4 4 0 0 1 38 13.4L35.3 14.2Z" fill="#E8453C"/>
+    <circle cx="33.4" cy="11.7" r="1.25" fill="#FFFFFF"/>
+    <circle cx="36.9" cy="15.1" r="0.85" fill="#22303F"/>
+    <circle cx="37.2" cy="14.8" r="0.3" fill="#FFFFFF"/>
+
+    <!-- 大喙：喉囊 + 上喙 -->
+    <path d="M38.4 16.9Q41.4 21.2 44.9 17.5L38.1 14.8Z" fill="#F08A2C"/>
+    <path d="M38.1 14.8 46.2 16.9 38.5 17.2Z" fill="#FFA243"/>
+  </g>
+  <rect x="2" y="2" width="44" height="44" rx="10" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1"/>
 </svg>

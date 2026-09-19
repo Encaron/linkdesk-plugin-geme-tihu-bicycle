@@ -1,56 +1,44 @@
-# Geme Tihu Bicycle
+# 鹈鹕骑行（Pelican Ride）
 
-> One line: what this plugin does. (Keep it at the very top — this file is what the marketplace shows on the **Details** tab.)
+![鹈鹕骑行场景封面——海边公路上骑车的白鹈鹕](resources/cover.svg)
 
-<!-- When you have cover art, put the image at resources/cover.svg and uncomment the line below:
-![Geme Tihu Bicycle cover](resources/cover.svg) -->
+> 一句话：海边公路上的「鹈鹕骑自行车」小游戏——跳跃、俯冲、吃鱼、躲海鸥，献给那个著名的 agent 基准梗。
+> Canvas 全矢量美术 + WebAudio 程序合成音乐，**零图片、零音频资产**，装进 LinkDesk 就能玩。
 
-## How to use
+## 怎么玩
 
-How to open it in LinkDesk, where to click, what you should see. Spell out the path a first-time user walks.
+1. 在 LinkDesk 插件市场安装「鹈鹕骑行」；
+2. 点**图标栏的鹈鹕图标**（或新标签页的 `[+]` 菜单）→ 主区打开游戏标签页；
+3. 开骑：
 
-## Directory layout — where things go
+| 操作 | 键位 |
+|:--|:--|
+| 起跳 | `空格` / `↑` / `W` / `回车` / 点击画面 |
+| 低头俯冲（滑行）/ 空中加速下落 | `↓` / `S`（按住） |
+| 暂停 / 继续 | `P`（切走标签页自动暂停） |
+| 音乐开关 | `M`（或右上角按钮） |
 
-You do not need to pre-create empty folders (git does not track them). **Create them when you need them; the table below says where.**
+4. **吃鱼得分**：连续吃鱼连击加成（最高 ×5），金鱼 +60；**三条命**，撞一次少一条；
+5. 路障两种：地面锥桶 / 横行的螃蟹（跳过去），海鸥两种：低飞（低头或跳过）、高空（**别起跳**）。
 
-| Path | What goes here | When it exists |
-|:--|:--|:--|
-| `plugin.json` | The plugin manifest | **Always** |
-| `README.md` | Description — the data source for the marketplace **Details** tab | Strongly recommended |
-| `CHANGELOG.md` | Release notes — the data source for the marketplace **Changelog** tab | Strongly recommended |
-| `resources/` | Assets: `icon.svg` / `cover.svg` / images referenced from the README | Once you have images |
-| `i18n/` | `en.json` (key = the source string; **do not create `zh.json`**) | Once you have UI text |
-| `themes/` · `languages/` · `snippets/` | Payloads for data-only plugins | Data-only plugins |
-| `src/index.tsx` | Entry (the `entry` in `plugin.json`) | Always for view plugins |
-| `src/views/` | Sidebar / panel view components (the files `contributes.views` points at) | Once you have views |
-| `src/components/` | Components reused inside this plugin | When needed |
-| `src/services/` | Domain logic / IPC wrappers / data layer | When needed |
-| `src/styles/` | **Multiple** CSS files — keep them together here (a single file next to the entry is fine too) | When needed |
-| `src/__tests__/` | Unit tests (run `npm i -D vitest` yourself if you want them — the scaffold does not preinstall test tooling) | When needed |
+## 特色
 
-> 🔴 **Shared things do not belong here** — components/hooks reused across plugins come from `@linkdesk/ui` (the public package the shell provides; it is already declared in `package.json` as `"latest"`, which resolves to the shell's current version line when you install — pin it to a specific shell version if you need a floor). The shell supplies that one instance at runtime, so **do not import its css** and **do not write a second copy inside your plugin**. Only logic that belongs to this plugin stays local.
-> 🔴 **Assets always live in `resources/` — no loose images in the plugin root.** What gets into the install package is what is **referenced by the README** or **declared by `icon` / `marketIcon`**; the directory name itself has no magic.
+- **昼夜循环**：约 90 秒一轮——白天、日落、夜晚（星月）、黎明，海天同步变色；
+- **程序合成 BGM**：132 BPM 八小节芯片音乐（方波主旋律 + 三角波贝斯），可随时关闭，偏好会被记住；
+- **最高分持久化**：走 `window.linkdesk.configuration`，换主题换会话都在；
+- **keep-alive 适配**：标签常驻挂载，切走自动暂停、回来点一下继续；
+- 落地扬尘、撞击掉羽毛、吃鱼冒星光、屏幕震动——手感细节拉满。
 
-## Three rules for this plugin
+## 图标身份（三图模型）
 
-1. **Colors come from theme variables** — always `var(--xxx)` in CSS, **never a hard-coded hex**. Reason: LinkDesk supports full theme replacement, so a fixed color means your plugin does not follow the theme.
-2. **UI text goes through `t()`** — `t("source string")`, with English in `i18n/en.json` and **no `zh.json`** (the source string is the key and is its own fallback). **Only add keys you actually read with `t()`** — an unread key is a dead key. Code identifiers (`src/index.tsx` and friends) are not copy — do not wrap them in `t()`.
-3. **Plugin identity comes only from declared fields in `plugin.json`** — declare whatever capability you need (`contributes` / `tabBehavior` / `icon` …). **Never make other people guess what your plugin is from a directory name or file location.**
+- `icon` = `resources/icon-bar.svg` —— 图标栏 Type-1 线稿剪影（单色滤镜着色）
+- `marketIcon` = `resources/icon.svg` —— 市场 / 标签栏 Type-2 彩色身份图
+- 场景封面 = `resources/cover.svg`（本页顶部，不进市场展示位）
 
-## Publishing
+## 开发
 
 ```bash
-npm run publish     # create the GitHub Release + upload the .linkdesk-plugin + update the catalog
+npm install && npm run dev   # 浏览器开发预览（HMR）
+npm run verify               # CI 同款五段自检
+npm run build                # 产出 geme-tihu-bicycle.linkdesk-plugin
 ```
-
-The first publish needs a GitHub token (the command walks you through it once and stores it locally). To see what it would do without doing it: `npm run publish -- --dry-run`.
-
-Publishing also requires this project to be **pushed to GitHub** (`publish` uses your project's `origin` to create the Release):
-
-```bash
-git remote add origin git@github.com:<you>/<repo>.git
-git push -u origin main
-```
-
-> The scaffold already created this repository for you (`main` branch + one initial commit), so this step is only about wiring the remote.
-> If you generated with `--no-git`, run `git init -b main` and commit first.

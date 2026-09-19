@@ -1,47 +1,29 @@
 {
   // ─────────────────────────────────────────────────────────────────────────
-  //  LinkDesk 插件清单 plugin.json（由 create-linkdesk-plugin 生成）
-  //
-  //  · 本文件是 JSONC：可写注释、可尾逗号（LinkDesk 与 SDK 都按 jsonc 解析，对标 VS Code package.json）。
-  //  · 完整字段以 plugin.schema.json 为准——VS Code 读 $schema 自动补全 + 校验。
-  //  · $schema 指向本工程 node_modules/@linkdesk/plugin-sdk 随包拷贝（npm install 后生效）。
+  //  鹈鹕骑行（geme-tihu-bicycle）——LinkDesk 插件清单
+  //  JSONC：可写注释、可尾逗号；字段级权威 = plugin.schema.json
   // ─────────────────────────────────────────────────────────────────────────
   "$schema": "./node_modules/@linkdesk/plugin-sdk/schemas/plugin.schema.json",
 
-  // ── 插件身份 ──
-  // 🔴 插件 ID：**显式声明**。它是安装目录名 / 卸载墓碑 / 更新对账的唯一键，**发布后永不可变**。
-  // 它与插件所在的目录名**无关**（目录可以随便改）——所以别拿目录名当它的替身。
-  // ⚠️ 且**不得以 `ldk-` 开头**：`ldk-` 是宿主与共享组件的命名空间，而你在 index.css 里的
-  //    类名前缀正是由它派生（`<pluginId>-你的类名`）——以 `ldk-` 开头 = 把自己的名字落进宿主空间。
   "pluginId": "geme-tihu-bicycle",
-  "name": "Geme Tihu Bicycle", // 显示名——标签页 / 插件详情等 UI 出现处
-  "version": "0.1.0", // 语义化版本 x.y.z——市场更新比较靠它；+1 时务必同笔补 CHANGELOG.md 的新段
-  // ── 最低壳版本──
-  // 模板消费 @linkdesk/ui（组件由壳池 vendor 单实例供给）⇒ 必须声明 ≥ 重锚号 0.2.13：低于它的旧壳
-  // 没有组件可解析，装上即视图全崩。SDK lint 腿（check-ui-min-app-version）机械把关，漏声明判红。
-  "minAppVersion": "0.2.13",
-  "description": "Geme Tihu Bicycle——我的第一个 LinkDesk 插件", // 一句话描述（插件详情页展示）
-  "author": "Encaron", // 作者名
-  "icon": "resources/icon.svg", // 图标——图标栏 / 标签页 / 市场里显示的就是它（resources/icon.svg 是占位图，换成你的）
+  "name": "鹈鹕骑行", // 标签页 / 市场展示名
+  "version": "1.0.0", // 与 package.json 的 version 保持一致；+1 时同笔补 CHANGELOG.md
+  "minAppVersion": "0.2.13", // 消费壳池 @linkdesk/ui 的重锚号
+  "description": "鹈鹕骑车海边公路无尽冲刺——跳跃、俯冲、吃鱼连击、躲避海鸥，昼夜循环 + 程序合成 BGM 的小游戏",
+  "author": "Encaron",
 
-  // ── 入口（视图插件 = 此文件 default 导出一个 React 组件）──
+  // 三图模型（对标 file-tree）：
+  //   icon      = 图标栏 Type-1 线稿剪影（图标栏只读这个字段）
+  //   marketIcon= 市场 / 标签栏 Type-2 彩色身份图
+  "icon": "resources/icon-bar.svg",
+  "marketIcon": "resources/icon.svg",
+
+  // 视图插件：entry 组件即标签页内容
   "entry": "src/index.tsx",
+  "appearsIn": { "iconBar": "top", "tabBar": true }, // 图标栏图标 + 点击直达主区标签页
+  "tabBehavior": { "singleton": true }, // 全局只开一个游戏标签
 
-  // ── 出现位置：可作为主区标签页打开 ──
-  "appearsIn": { "tabBar": true },
-  "tabBehavior": { "singleton": true }, // 全局只开一个实例，避免重复标签
-
-  // ── 贡献点（contributes：全部可选，按需增删）──
   "contributes": {
-    // 自带翻译：key=语言码, value=相对插件根的 JSON 文件。UI 文案用 t() 读这里；无需 zh.json——中文 key 原文自带兜底。
-    "i18n": { "en": "i18n/en.json" },
-    // ── 需要「侧栏 / 底部面板 / 辅助侧栏」分区视图时：取消注释，在 src/views/ 放对应组件，
-    //    容器 key 与 view id 用你的 pluginId 做前缀防撞（对标 plugins/panel-demo）──
-    // "viewsContainers": { "geme-tihu-bicycle-sidebar": { "title": "Geme Tihu Bicycle", "location": "sidebar" } },
-    // "views": {
-    //   "geme-tihu-bicycle-sidebar": [
-    //     { "id": "main", "title": "Geme Tihu Bicycle", "render": "src/views/MainView.tsx", "order": 0 }
-    //   ]
-    // }
+    "i18n": { "en": "i18n/en.json" } // key=中文原文自带兜底，无需 zh.json
   },
 }

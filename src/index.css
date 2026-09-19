@@ -1,33 +1,256 @@
-/* Geme Tihu Bicycle 样式示例（`npm run lint` 会照着下面四条查）。
-   四条纪律：
-   · 颜色一律 var(--xxx)，禁硬编码 hex——用户换主题时你的插件要跟着变；
-   · 字号一律 var(--font-size-*)——用户调全局字号时它才跟着缩放，裸 px 不会；
-   · padding / margin / gap 走 4px 节奏（4 的倍数）；
-   · 类名一律以 geme-tihu-bicycle- 开头——插件视图里宿主、共享组件与**所有已加载插件**的
-     CSS 在同一张样式表里，裸类名（如 .starter）是全局标识符，会和别人的同名规则
-     互相覆盖（不报错、只是长得不对）。 */
+/* 鹈鹕骑行——界面铬件样式（HUD / 覆盖层）。
+   纪律：颜色一律 var(--xxx)（游戏画面本体是 Canvas 美术，自带配色，属设计意图）；
+   字号一律 var(--font-size-*)；padding / margin / gap 走 4px 节奏；
+   类名一律 geme-tihu-bicycle- 前缀（宿主与所有已加载插件共用一张样式表）。
 
-.geme-tihu-bicycle-starter {
-  padding: 24px;
-  font-family: inherit;
+   主题变量经 --gtb-* 中间层引用：真壳由宿主下发 --bg-card、--text-*、--accent 等变量，
+   这里逐项透传；dev 宿主 / 裸浏览器没有这些变量时落到本插件自己的兜底值（跟随暗色观感）。 */
+
+.geme-tihu-bicycle-root {
+  --gtb-card: var(--bg-card, rgb(20 24 34 / 88%));
+  --gtb-border: var(--border, rgb(255 255 255 / 16%));
+  --gtb-text: var(--text-primary, rgb(242 244 248));
+  --gtb-text-2: var(--text-secondary, rgb(242 244 248 / 74%));
+  --gtb-text-3: var(--text-muted, rgb(242 244 248 / 56%));
+  --gtb-accent: var(--accent, rgb(76 195 138));
+  --gtb-error: var(--error, rgb(255 107 107));
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  background: var(--gtb-card);
+  user-select: none;
 }
 
-.geme-tihu-bicycle-starter__title {
-  margin: 0 0 8px;
-  color: var(--text);
+.geme-tihu-bicycle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
-.geme-tihu-bicycle-starter__text {
-  margin: 0 0 4px;
-  color: var(--text-muted);
+/* ── HUD ── */
+
+.geme-tihu-bicycle-hud {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
 }
 
-.geme-tihu-bicycle-starter__hint {
+.geme-tihu-bicycle-chip {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border: 1px solid var(--gtb-border);
+  border-radius: 999px;
+  background: var(--gtb-card);
+  color: var(--gtb-text);
+  font-size: var(--font-size-sm);
+  backdrop-filter: blur(10px);
+}
+
+.geme-tihu-bicycle-chip b {
+  font-size: var(--font-size-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.geme-tihu-bicycle-spacer {
+  flex: 1;
+}
+
+.geme-tihu-bicycle-heart {
+  color: var(--gtb-error);
+  font-size: var(--font-size-md);
+}
+
+.geme-tihu-bicycle-heart--off {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+
+.geme-tihu-bicycle-combo {
+  color: var(--gtb-accent);
+  border-color: var(--gtb-accent);
+  font-weight: 600;
+}
+
+.geme-tihu-bicycle-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--gtb-border);
+  border-radius: 8px;
+  background: var(--gtb-card);
+  color: var(--gtb-text);
+  cursor: pointer;
+}
+
+.geme-tihu-bicycle-btn:hover {
+  color: var(--gtb-accent);
+  border-color: var(--gtb-accent);
+}
+
+/* ── 覆盖层 ── */
+
+.geme-tihu-bicycle-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.geme-tihu-bicycle-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 480px;
+  padding: 24px 32px;
+  border: 1px solid var(--gtb-border);
+  border-radius: 16px;
+  background: var(--gtb-card);
+  color: var(--gtb-text);
+  text-align: center;
+  cursor: default;
+  backdrop-filter: blur(14px);
+}
+
+.geme-tihu-bicycle-title {
   margin: 0;
-  color: var(--text-muted);
+  color: var(--gtb-text);
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.geme-tihu-bicycle-title--sm {
+  letter-spacing: 4px;
+}
+
+.geme-tihu-bicycle-sub {
+  margin: 0;
+  color: var(--gtb-text-2);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.geme-tihu-bicycle-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  color: var(--gtb-text-2);
   font-size: var(--font-size-xs);
 }
 
-.geme-tihu-bicycle-starter__hint code {
+.geme-tihu-bicycle-kbd {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--gtb-border);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--gtb-card);
+  color: var(--gtb-text);
   font-family: var(--font-mono, monospace);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+
+.geme-tihu-bicycle-tip {
+  margin: 0;
+  color: var(--gtb-text-2);
+  font-size: var(--font-size-xs);
+}
+
+.geme-tihu-bicycle-best {
+  margin: 0;
+  color: var(--gtb-text-2);
+  font-size: var(--font-size-sm);
+}
+
+.geme-tihu-bicycle-start {
+  padding: 8px 32px;
+  border: 2px solid var(--gtb-accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gtb-accent);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  letter-spacing: 4px;
+  cursor: pointer;
+}
+
+.geme-tihu-bicycle-start:hover {
+  background: var(--gtb-accent);
+  color: var(--gtb-card);
+}
+
+.geme-tihu-bicycle-hint {
+  margin: 0;
+  color: var(--gtb-text-3);
+  font-size: var(--font-size-2xs);
+}
+
+.geme-tihu-bicycle-record {
+  padding: 4px 16px;
+  border: 1px solid var(--gtb-error);
+  border-radius: 999px;
+  color: var(--gtb-error);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 2px;
+  animation: geme-tihu-bicycle-pop 0.8s ease infinite alternate;
+}
+
+@keyframes geme-tihu-bicycle-pop {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.geme-tihu-bicycle-result {
+  display: flex;
+  gap: 32px;
+}
+
+.geme-tihu-bicycle-result > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.geme-tihu-bicycle-result span {
+  color: var(--gtb-text-3);
+  font-size: var(--font-size-xs);
+}
+
+.geme-tihu-bicycle-result b {
+  color: var(--gtb-text);
+  font-size: var(--font-size-2xl);
+  font-variant-numeric: tabular-nums;
 }

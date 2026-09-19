@@ -1,8 +1,8 @@
 {
-  "name": "geme-tihu-bicycle",
-  "version": "0.1.0",
+  "name": "linkdesk-plugin-geme-tihu-bicycle",
+  "version": "1.0.0",
   "private": true,
-  "description": "Geme Tihu Bicycle——LinkDesk 插件（由 create-linkdesk-plugin 生成）",
+  "description": "鹈鹕骑行——LinkDesk 小游戏插件（海边公路无尽骑行，Canvas 全矢量 + WebAudio 合成音乐）",
   "type": "module",
   "dependencies": {
     "@linkdesk/ui": "latest"

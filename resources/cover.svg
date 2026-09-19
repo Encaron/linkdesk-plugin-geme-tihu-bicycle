@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" fill="none">
+  <!-- ============================================================
+       鹈鹕骑行 · 场景封面「海边公路」
+       理念：把游戏本体的一幕直接放大——蓝天、碎浪海面、沙滩公路，
+       戴红帽的白鹈鹕骑着橙色自行车迎面骑来，大喙与红帽是身份记号，
+       一尾小鱼跃出海面点题「吃鱼得分」。资产独立 SVG：颜色自含。
+       ============================================================ -->
+  <defs>
+    <linearGradient id="c_sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3FA2F7"/>
+      <stop offset="1" stop-color="#C9EFFF"/>
+    </linearGradient>
+    <linearGradient id="c_sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E9BE0"/>
+      <stop offset="1" stop-color="#79CDF4"/>
+    </linearGradient>
+    <radialGradient id="c_glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFECAA" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFECAA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 天空 + 太阳 -->
+  <rect width="640" height="640" fill="url(#c_sky)"/>
+  <circle cx="500" cy="120" r="110" fill="url(#c_glow)"/>
+  <circle cx="500" cy="120" r="42" fill="#FFE9A8"/>
+
+  <!-- 云 -->
+  <g fill="#FFFFFF" opacity="0.92">
+    <ellipse cx="140" cy="120" rx="62" ry="26"/>
+    <ellipse cx="100" cy="132" rx="40" ry="19"/>
+    <ellipse cx="185" cy="133" rx="42" ry="18"/>
+  </g>
+  <g fill="#FFFFFF" opacity="0.65">
+    <ellipse cx="420" cy="210" rx="48" ry="20"/>
+    <ellipse cx="455" cy="220" rx="34" ry="14"/>
+  </g>
+  <g fill="#FFFFFF" opacity="0.45">
+    <ellipse cx="70" cy="250" rx="36" ry="14"/>
+  </g>
+
+  <!-- 标题 -->
+  <g font-family="'Microsoft YaHei UI', sans-serif" text-anchor="middle">
+    <text x="322" y="126" font-size="84" font-weight="800" fill="#1D4E89" opacity="0.18">鹈鹕骑行</text>
+    <text x="320" y="122" font-size="84" font-weight="800" fill="#FFFFFF" stroke="#1D4E89" stroke-width="2.5" paint-order="stroke">鹈鹕骑行</text>
+    <text x="320" y="166" font-size="21" font-weight="600" fill="#2B5C8A" letter-spacing="7">PELICAN RIDE · LINKDESK 小游戏</text>
+  </g>
+
+  <!-- 海 -->
+  <rect x="0" y="360" width="640" height="112" fill="url(#c_sea)"/>
+  <rect x="0" y="360" width="640" height="3" fill="#FFFFFF" opacity="0.5"/>
+  <g stroke="#DFF3FF" stroke-width="3.5" stroke-linecap="round" opacity="0.55">
+    <path d="M40 388h58M150 404h70M290 390h52M420 408h74M540 392h56"/>
+    <path d="M90 424h64M230 434h58M370 424h66M510 436h60"/>
+  </g>
+  <!-- 跃出海面的鱼 -->
+  <g transform="translate(528 346) rotate(-30)">
+    <ellipse cx="0" cy="0" rx="15" ry="8" fill="#8ECBEE"/>
+    <path d="M13 0 26 -9 24 3Z" fill="#5FA8DC"/>
+    <path d="M-3 -5 5 -12 8 -4Z" fill="#5FA8DC"/>
+    <circle cx="-8" cy="-1.5" r="2" fill="#22303F"/>
+  </g>
+  <g stroke="#FFE082" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <path d="M496 322v-14M489 329l-10-10M503 329l10-10"/>
+  </g>
+
+  <!-- 沙滩 -->
+  <rect x="0" y="472" width="640" height="34" fill="#F2D48A"/>
+  <rect x="0" y="472" width="640" height="5" fill="#000000" opacity="0.07"/>
+
+  <!-- 棕榈树（左） -->
+  <g transform="translate(86 500)">
+    <path d="M0 0Q22 -90 8 -170" stroke="#8A5A33" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <g stroke-linecap="round" fill="none">
+      <g stroke="#1F7440" stroke-width="10">
+        <path d="M8 -170Q-40 -186 -66 -158"/>
+        <path d="M8 -170Q-20 -206 -52 -206"/>
+        <path d="M8 -170Q30 -208 66 -196"/>
+        <path d="M8 -170Q52 -180 72 -150"/>
+      </g>
+      <g stroke="#2F9E5F" stroke-width="8">
+        <path d="M8 -172Q-34 -184 -58 -160"/>
+        <path d="M8 -172Q-16 -202 -44 -202"/>
+        <path d="M8 -172Q28 -204 60 -192"/>
+        <path d="M8 -172Q46 -180 64 -152"/>
+      </g>
+    </g>
+    <circle cx="2" cy="-162" r="7" fill="#5C3A1E"/>
+    <circle cx="16" cy="-156" r="7" fill="#5C3A1E"/>
+  </g>
+
+  <!-- 遮阳伞（右） -->
+  <g transform="translate(566 500)">
+    <path d="M0 0L10 -104" stroke="#C9CDD6" stroke-width="6" stroke-linecap="round"/>
+    <g transform="translate(10 -104)">
+      <path d="M0 0A46 46 0 0 0 -46 0Z" fill="#FF6B6B"/>
+      <path d="M-46 0A46 46 0 0 1 -23 -39.8L0 0Z" fill="#FFD93D"/>
+      <path d="M-23 -39.8A46 46 0 0 1 23 -39.8L0 0Z" fill="#FF6B6B"/>
+      <path d="M23 -39.8A46 46 0 0 1 46 0L0 0Z" fill="#FFD93D"/>
+      <circle cx="0" cy="2" r="5" fill="#C9CDD6"/>
+    </g>
+  </g>
+
+  <!-- 公路 -->
+  <rect x="0" y="506" width="640" height="134" fill="#566072"/>
+  <rect x="0" y="506" width="640" height="5" fill="#8B96A8"/>
+  <g fill="#FFFFFF" opacity="0.6">
+    <rect x="20" y="580" width="64" height="7" rx="3.5"/>
+    <rect x="150" y="580" width="64" height="7" rx="3.5"/>
+    <rect x="280" y="580" width="64" height="7" rx="3.5"/>
+    <rect x="410" y="580" width="64" height="7" rx="3.5"/>
+    <rect x="540" y="580" width="64" height="7" rx="3.5"/>
+  </g>
+
+  <!-- 鹈鹕骑车（迎面骑来） -->
+  <g transform="translate(0 0)">
+    <!-- 影子 -->
+    <ellipse cx="315" cy="508" rx="150" ry="12" fill="#0E1B2A" opacity="0.18"/>
+    <!-- 车轮 -->
+    <g stroke="#2A3346" stroke-width="10" fill="none">
+      <circle cx="245" cy="462" r="40"/>
+      <circle cx="365" cy="462" r="40"/>
+    </g>
+    <g stroke="#E8EEF7" stroke-width="3" opacity="0.85">
+      <path d="M245 462 245 430M245 462 272 478M245 462 218 478"/>
+      <path d="M365 462 365 430M365 462 392 478M365 462 338 478"/>
+    </g>
+    <circle cx="245" cy="462" r="7" fill="#F97316"/>
+    <circle cx="365" cy="462" r="7" fill="#F97316"/>
+    <!-- 曲柄 / 踏板 / 腿 -->
+    <path d="M310 470 337 452M310 470 283 488" stroke="#2A3346" stroke-width="6" stroke-linecap="round"/>
+    <rect x="329" y="446" width="18" height="9" rx="4" fill="#2A3346"/>
+    <rect x="274" y="484" width="18" height="9" rx="4" fill="#2A3346"/>
+    <path d="M288 398Q322 428 336 452" stroke="#F8F9FB" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M292 402Q286 452 288 486" stroke="#E4E9F1" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <circle cx="337" cy="452" r="6" fill="#F97316"/>
+    <circle cx="288" cy="487" r="6" fill="#F97316"/>
+    <!-- 车架 -->
+    <g stroke="#F97316" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M245 462 310 470"/>
+      <path d="M310 470 280 378"/>
+      <path d="M280 378 355 370"/>
+      <path d="M355 370 365 462"/>
+      <path d="M310 470 355 370"/>
+    </g>
+    <path d="M280 378 274 366" stroke="#F97316" stroke-width="9" stroke-linecap="round"/>
+    <rect x="256" y="356" width="38" height="13" rx="6" fill="#2A3346"/>
+    <path d="M355 370 368 352" stroke="#F97316" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="370" cy="349" r="7" fill="#2A3346"/>
+    <!-- 身体 / 尾羽 / 翅膀 -->
+    <ellipse cx="298" cy="388" rx="50" ry="30" transform="rotate(-6 298 388)" fill="#FDFEFF"/>
+    <path d="M252 380 228 374 242 388 220 390 240 400 254 398Z" fill="#FDFEFF"/>
+    <ellipse cx="288" cy="384" rx="28" ry="15" transform="rotate(-18 288 384)" fill="#DCE4EF"/>
+    <!-- 脖子 / 头 / 红帽 -->
+    <path d="M326 382Q342 362 350 347" stroke="#FDFEFF" stroke-width="22" fill="none" stroke-linecap="round"/>
+    <circle cx="354" cy="338" r="19" fill="#FDFEFF"/>
+    <path d="M354 336A20 20 0 0 0 334 342 20 20 0 0 0 336 350L354 336Z" fill="#E8453C"/>
+    <path d="M335 334A19 19 0 0 1 366 330L354 336Z" fill="#E8453C"/>
+    <circle cx="341" cy="316" r="6.5" fill="#FFFFFF"/>
+    <circle cx="361" cy="334" r="4.2" fill="#22303F"/>
+    <circle cx="362.6" cy="332.4" r="1.5" fill="#FFFFFF"/>
+    <!-- 喉囊 + 大喙 -->
+    <path d="M368 344Q396 392 452 352L367 332Z" fill="#F08A2C"/>
+    <path d="M367 332 458 352 369 344Z" fill="#FFA243"/>
+    <!-- 星光点缀 -->
+    <g stroke="#FFE082" stroke-width="4" stroke-linecap="round">
+      <path d="M470 300v-22M459 289h22"/>
+      <path d="M180 320v-16M172 312h16"/>
+      <path d="M430 420v-14M423 413h14"/>
+    </g>
+  </g>
+</svg>
