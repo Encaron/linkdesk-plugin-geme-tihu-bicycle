@@ -1,0 +1,32 @@
+{
+  "version": "1",
+  "updatedAt": "2026-09-19T17:23:38.482Z",
+  "plugins": [
+    {
+      "id": "geme-tihu-bicycle",
+      "name": "鹈鹕骑行",
+      "version": "1.0.0",
+      "description": "鹈鹕骑车海边公路无尽冲刺——跳跃、俯冲、吃鱼连击、躲避海鸥，昼夜循环 + 程序合成 BGM 的小游戏",
+      "author": {
+        "name": "Encaron"
+      },
+      "icon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.0/resources/icon-bar.svg",
+      "iconSource": "url",
+      "marketIcon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.0/resources/icon.svg",
+      "marketIconSource": "url",
+      "minAppVersion": "0.2.13",
+      "readmeUrl": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.0/README.md",
+      "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.0/geme-tihu-bicycle.linkdesk-plugin",
+      "size": 22884,
+      "publishedAt": "2026-09-19T17:23:38.482Z",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.0/geme-tihu-bicycle.linkdesk-plugin",
+          "publishedAt": "2026-09-19T17:23:38.482Z",
+          "changelog": "- 首个公开版本：海边公路无尽骑行小游戏——Canvas 全矢量美术，零图片 / 零音频资产\n- 玩法：跳跃（空格/↑/点击）、俯冲（↓）、吃鱼连击（最高 ×5）、金鱼 +60、三条命；锥桶与螃蟹地面拦路，低飞海鸥要低头、高空海鸥别起跳\n- 昼夜循环（白天→日落→夜晚→黎明）、双层云视差、海浪碎光、棕榈 / 遮阳伞 / 礁石路景\n- WebAudio 程序合成芯片 BGM（132 BPM 八小节循环）与全套合成音效，音乐可随时关闭且记住偏好\n- 最高分与音乐偏好经 `window.linkdesk.configuration` 持久化\n- keep-alive 适配：切离标签自动暂停；引擎（物理 / 碰撞 / 连击 / 生成公平性 / 确定性）有 vitest 单测覆盖"
+        }
+      ]
+    }
+  ]
+}
