@@ -1,6 +1,6 @@
 {
   "name": "linkdesk-plugin-geme-tihu-bicycle",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "鹈鹕骑行——LinkDesk 小游戏插件（海边公路无尽骑行，Canvas 全矢量 + WebAudio 合成音乐）",
   "type": "module",
