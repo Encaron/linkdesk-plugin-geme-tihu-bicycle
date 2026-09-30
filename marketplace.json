@@ -1,25 +1,31 @@
 {
   "version": "1",
-  "updatedAt": "2026-09-30T02:46:47.881Z",
+  "updatedAt": "2026-09-30T03:06:51.248Z",
   "plugins": [
     {
       "id": "geme-tihu-bicycle",
       "name": "鹈鹕骑行",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "鹈鹕骑车海边公路无尽冲刺——跳跃、俯冲、吃鱼连击、躲避海鸥，昼夜循环 + 程序合成 BGM 的小游戏",
       "author": {
         "name": "Encaron"
       },
-      "icon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.1/resources/icon-bar.svg",
+      "icon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.2/resources/icon-bar.svg",
       "iconSource": "url",
-      "marketIcon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.1/resources/icon.svg",
+      "marketIcon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.2/resources/icon.svg",
       "marketIconSource": "url",
       "minAppVersion": "0.2.13",
-      "readmeUrl": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.1/README.md",
-      "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.1/geme-tihu-bicycle.linkdesk-plugin",
-      "size": 23466,
-      "publishedAt": "2026-09-30T02:46:47.881Z",
+      "readmeUrl": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.2/README.md",
+      "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.2/geme-tihu-bicycle.linkdesk-plugin",
+      "size": 23775,
+      "publishedAt": "2026-09-30T03:06:51.248Z",
       "versions": [
+        {
+          "version": "1.0.2",
+          "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.2/geme-tihu-bicycle.linkdesk-plugin",
+          "publishedAt": "2026-09-30T03:06:51.248Z",
+          "changelog": "- **说明更正（本版无代码变更）**：v1.0.1 那段末尾写「本仓 `npm run verify` 随之多出**第 ⑦ 段**——\n  本版过闸读数 = 七段全绿」——**两处都不实**，更正为：SVG 合法性判据的**本体**确已随\n  `@linkdesk/plugin-sdk` 的 `svg-wellformed` 子路径提供（严格 XML 解析器读完才算数），但\n  **本仓 `verify` 仍是五段**（lint / 跨插件 / 字典 / 声明自洽 / 目录条目形态）——批量铺装 CI\n  只覆盖官方维护的插件仓，本仓要拿第 ⑦ 段需重拉脚手架模板或手工补一段。\n  图标修复本身不受影响，见 v1.0.1"
+        },
         {
           "version": "1.0.1",
           "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.1/geme-tihu-bicycle.linkdesk-plugin",
