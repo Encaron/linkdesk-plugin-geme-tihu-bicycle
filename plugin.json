@@ -7,7 +7,7 @@
 
   "pluginId": "geme-tihu-bicycle",
   "name": "鹈鹕骑行", // 标签页 / 市场展示名
-  "version": "1.0.0", // 与 package.json 的 version 保持一致；+1 时同笔补 CHANGELOG.md
+  "version": "1.0.1", // 与 package.json 的 version 保持一致；+1 时同笔补 CHANGELOG.md
   "minAppVersion": "0.2.13", // 消费壳池 @linkdesk/ui 的重锚号
   "description": "鹈鹕骑车海边公路无尽冲刺——跳跃、俯冲、吃鱼连击、躲避海鸥，昼夜循环 + 程序合成 BGM 的小游戏",
   "author": "Encaron",
