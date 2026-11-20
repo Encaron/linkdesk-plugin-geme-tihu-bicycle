@@ -269,7 +269,11 @@ export default function PelicanRide(_props: { isActive?: boolean; tabId?: string
     const onBlur = () => {
       if (engineRef.current?.state.phase === "running" && !pausedRef.current) togglePause.current();
     };
+    // 游戏进行中方向键必须持续生效：画布不持有 DOM 焦点，容器 onKeyDown 需先点画布才会收键
+    // ⇒ 本视图在 running 期间确需全局抓键（E6 历史案针对的是「常驻插件无差别劫持」，此处只在游戏视图挂载期间监听）
+    // eslint-disable-next-line linkdesk/no-global-key-listener -- 游戏运行时方向键控制，画布无焦点分区
     window.addEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line linkdesk/no-global-key-listener -- 同上：keyup 必须与 keydown 同域成对
     window.addEventListener("keyup", onKeyUp);
     window.addEventListener("blur", onBlur);
     return () => {
@@ -356,7 +360,7 @@ export default function PelicanRide(_props: { isActive?: boolean; tabId?: string
         <button
           type="button"
           className="geme-tihu-bicycle-btn"
-          title={t("音乐")}
+          data-hint={t("音乐")}
           aria-label={t("音乐")}
           onClick={(e) => {
             stop(e);
@@ -375,7 +379,7 @@ export default function PelicanRide(_props: { isActive?: boolean; tabId?: string
           <button
             type="button"
             className="geme-tihu-bicycle-btn"
-            title={t("暂停")}
+            data-hint={t("暂停")}
             aria-label={t("暂停")}
             onClick={(e) => {
               stop(e);
