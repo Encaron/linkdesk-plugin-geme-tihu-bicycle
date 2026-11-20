@@ -1,25 +1,35 @@
 {
   "version": "1",
-  "updatedAt": "2026-10-01T16:05:43.018Z",
+  "updatedAt": "2026-11-20T11:52:31.247Z",
   "plugins": [
     {
       "id": "geme-tihu-bicycle",
       "name": "鹈鹕骑行",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "description": "鹈鹕骑车海边公路无尽冲刺——跳跃、俯冲、吃鱼连击、躲避海鸥，昼夜循环 + 程序合成 BGM 的小游戏",
       "author": {
         "name": "Encaron"
       },
-      "icon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.3/resources/icon-bar.svg",
+      "icon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.4/resources/icon-bar.svg",
       "iconSource": "url",
-      "marketIcon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.3/resources/icon.svg",
+      "marketIcon": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.4/resources/icon.svg",
       "marketIconSource": "url",
       "minAppVersion": "0.2.13",
-      "readmeUrl": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.3/README.md",
-      "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.3/geme-tihu-bicycle.linkdesk-plugin",
-      "size": 24046,
-      "publishedAt": "2026-10-01T16:05:43.018Z",
+      "category": "entertainment",
+      "categories": [
+        "game"
+      ],
+      "readmeUrl": "https://raw.githubusercontent.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/v1.0.4/README.md",
+      "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.4/geme-tihu-bicycle.linkdesk-plugin",
+      "size": 24216,
+      "publishedAt": "2026-11-20T11:52:31.247Z",
       "versions": [
+        {
+          "version": "1.0.4",
+          "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.4/geme-tihu-bicycle.linkdesk-plugin",
+          "publishedAt": "2026-11-20T11:52:31.247Z",
+          "changelog": "- **分类声明（R4-2.8/2.9）**：`plugin.json` 顶层补 `category: \"entertainment\"` ＋ `categories: [\"game\"]`——商店分类抽屉归位，随本次发版进入官方目录条目。\n\n<!-- 写法约定（别改格式——LinkDesk 市场按它切段）：\n     · 段标题固定 `## v<版本>（<日期>）`，版本号必须与 plugin.json 的 version 逐字相同。\n     · 每次在 plugin.json 里 +1 版本号，就必须在同一笔加上对应的新段——只改版本不写段，\n       市场里这一版会显示「此版本未提供变更说明」。\n     · 从新到旧排列，最新的一段在最上面。 -->"
+        },
         {
           "version": "1.0.3",
           "downloadUrl": "https://github.com/Encaron/linkdesk-plugin-geme-tihu-bicycle/releases/download/v1.0.3/geme-tihu-bicycle.linkdesk-plugin",
