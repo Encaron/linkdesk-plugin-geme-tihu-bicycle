@@ -55,7 +55,7 @@
   gap: 8px;
   padding: 4px 12px;
   border: 1px solid var(--gtb-border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--gtb-card);
   color: var(--gtb-text);
   font-size: var(--font-size-sm);
@@ -96,7 +96,7 @@
   height: var(--size-control-lg, 32px);
   padding: 0;
   border: 1px solid var(--gtb-border);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   background: var(--gtb-card);
   color: var(--gtb-text);
   cursor: pointer;
@@ -128,7 +128,7 @@
   max-width: 480px;
   padding: 24px 32px;
   border: 1px solid var(--gtb-border);
-  border-radius: 16px;
+  border-radius: var(--radius-2xl);
   background: var(--gtb-card);
   color: var(--gtb-text);
   text-align: center;
@@ -169,7 +169,7 @@
   padding: 2px 8px;
   border: 1px solid var(--gtb-border);
   border-bottom-width: 2px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--gtb-card);
   color: var(--gtb-text);
   font-family: var(--font-mono, monospace);
@@ -192,7 +192,7 @@
 .geme-tihu-bicycle-start {
   padding: 8px 32px;
   border: 2px solid var(--gtb-accent);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--gtb-accent);
   font-size: var(--font-size-md);
@@ -215,7 +215,7 @@
 .geme-tihu-bicycle-record {
   padding: 4px 16px;
   border: 1px solid var(--gtb-error);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--gtb-error);
   font-size: var(--font-size-sm);
   font-weight: 700;
