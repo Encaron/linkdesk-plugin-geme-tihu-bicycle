@@ -1,5 +1,9 @@
 # 更新日志
 
+## v1.0.5（2026-11-23）
+
+- 主钮高度接宿主 `--size-control-lg`、圆角改吃 `--radius-*`（均带 fallback，零视觉）
+
 ## v1.0.4（2026-11-20）
 
 - **分类声明（R4-2.8/2.9）**：`plugin.json` 顶层补 `category: "entertainment"` ＋ `categories: ["game"]`——商店分类抽屉归位，随本次发版进入官方目录条目。
